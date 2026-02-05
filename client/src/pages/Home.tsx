@@ -102,7 +102,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="card-arcade text-center group">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <Gamepad2 className="w-12 h-12 text-[var(--color-retro-orange)] group-hover:scale-110 transition-transform" />
+                <div className="character-sprite sprite-bounce" style={{ color: "var(--color-retro-orange)", fontSize: "3rem" }}>
+                  🕹️
+                </div>
               </div>
               <h3 className="font-mono-pixel text-2xl mb-4 text-foreground">RETRO REVIVAL</h3>
               <p className="text-muted-foreground leading-relaxed">
@@ -112,7 +114,9 @@ export default function Home() {
 
             <div className="card-arcade text-center group">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <Zap className="w-12 h-12 text-[var(--color-electric-yellow)] group-hover:scale-110 transition-transform" />
+                <div className="character-sprite sprite-pulse sprite-glow" style={{ color: "var(--color-electric-yellow)", fontSize: "3rem" }}>
+                  ⚡
+                </div>
               </div>
               <h3 className="font-mono-pixel text-2xl mb-4 text-foreground">WEB2 + WEB3</h3>
               <p className="text-muted-foreground leading-relaxed">
@@ -122,7 +126,9 @@ export default function Home() {
 
             <div className="card-arcade text-center group">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <Users className="w-12 h-12 text-[var(--color-cyber-cyan)] group-hover:scale-110 transition-transform" />
+                <div className="character-sprite sprite-float sprite-glow" style={{ color: "var(--color-cyber-cyan)", fontSize: "3rem" }}>
+                  👥
+                </div>
               </div>
               <h3 className="font-mono-pixel text-2xl mb-4 text-foreground">COMMUNITY DRIVEN</h3>
               <p className="text-muted-foreground leading-relaxed">
@@ -180,12 +186,17 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "DOGE", speed: 90, handling: 94, acceleration: 87, color: "var(--color-neon-green)" },
-              { name: "PEPE", speed: 95, handling: 88, acceleration: 92, color: "var(--color-hot-magenta)" },
-              { name: "PNUT", speed: 88, handling: 90, acceleration: 95, color: "var(--color-cyber-cyan)" }
+              { name: "DOGE", speed: 90, handling: 94, acceleration: 87, color: "var(--color-neon-green)", emoji: "🐕", animation: "sprite-bounce" },
+              { name: "PEPE", speed: 95, handling: 88, acceleration: 92, color: "var(--color-hot-magenta)", emoji: "🐸", animation: "sprite-float" },
+              { name: "PNUT", speed: 88, handling: 90, acceleration: 95, color: "var(--color-cyber-cyan)", emoji: "🐿️", animation: "sprite-pulse" }
             ].map((character, idx) => (
               <div key={idx} className="card-arcade crt-scanlines">
-                <div className="font-pixel text-xl mb-4" style={{ color: character.color }}>
+                <div className="text-center mb-4">
+                  <div className={`character-sprite ${character.animation} sprite-glow`} style={{ color: character.color }}>
+                    {character.emoji}
+                  </div>
+                </div>
+                <div className="font-pixel text-xl mb-4 text-center" style={{ color: character.color }}>
                   {character.name}
                 </div>
                 <div className="space-y-3">
@@ -282,7 +293,9 @@ export default function Home() {
           </div>
 
           <div className="card-arcade max-w-3xl mx-auto text-center">
-            <Coins className="w-16 h-16 mx-auto mb-6 text-[var(--color-electric-yellow)]" />
+            <div className="character-sprite sprite-pulse sprite-glow" style={{ color: "var(--color-electric-yellow)", fontSize: "4rem" }}>
+              🚀💰
+            </div>
             <h3 className="font-pixel text-2xl mb-4 text-[var(--color-neon-green)]">50% PROFIT SHARE</h3>
             <p className="text-muted-foreground leading-relaxed">
               Holders with 50,000+ $RMG receive 50% of gross profits from platform purchases, NFT marketplace, and brand partnerships.
@@ -312,19 +325,25 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="card-arcade text-center">
-              <Trophy className="w-12 h-12 mx-auto mb-4 text-[var(--color-electric-yellow)]" />
+              <div className="character-sprite sprite-bounce sprite-glow" style={{ color: "var(--color-electric-yellow)", fontSize: "3rem" }}>
+                🏆
+              </div>
               <h3 className="font-mono-pixel text-xl mb-3">TRUE OWNERSHIP</h3>
               <p className="text-sm text-muted-foreground">Your NFTs, your assets. Trade freely on the blockchain.</p>
             </div>
 
             <div className="card-arcade text-center">
-              <Rocket className="w-12 h-12 mx-auto mb-4 text-[var(--color-hot-magenta)]" />
+              <div className="character-sprite sprite-pulse sprite-glow" style={{ color: "var(--color-hot-magenta)", fontSize: "3rem" }}>
+                🚀
+              </div>
               <h3 className="font-mono-pixel text-xl mb-3">EXCLUSIVE ACCESS</h3>
               <p className="text-sm text-muted-foreground">Unlock special tournaments, tracks, and game modes.</p>
             </div>
 
             <div className="card-arcade text-center">
-              <Coins className="w-12 h-12 mx-auto mb-4 text-[var(--color-neon-green)]" />
+              <div className="character-sprite sprite-float sprite-glow" style={{ color: "var(--color-neon-green)", fontSize: "3rem" }}>
+                💰
+              </div>
               <h3 className="font-mono-pixel text-xl mb-3">PLAY TO EARN</h3>
               <p className="text-sm text-muted-foreground">Compete with your NFTs and earn $RMG tokens as rewards.</p>
             </div>

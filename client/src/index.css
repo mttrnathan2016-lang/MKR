@@ -217,4 +217,68 @@
     margin-bottom: -5rem;
     padding-bottom: 8rem;
   }
+  
+  /* Sprite Animations */
+  @keyframes sprite-bounce {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+  
+  @keyframes sprite-float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-8px) rotate(2deg);
+    }
+    75% {
+      transform: translateY(-8px) rotate(-2deg);
+    }
+  }
+  
+  @keyframes sprite-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  @keyframes sprite-glow-pulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 10px currentColor);
+    }
+    50% {
+      filter: drop-shadow(0 0 20px currentColor);
+    }
+  }
+  
+  .sprite-bounce {
+    animation: sprite-bounce 2s ease-in-out infinite;
+  }
+  
+  .sprite-float {
+    animation: sprite-float 3s ease-in-out infinite;
+  }
+  
+  .sprite-pulse {
+    animation: sprite-pulse 2.5s ease-in-out infinite;
+  }
+  
+  .sprite-glow {
+    animation: sprite-glow-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Character sprite icons */
+  .character-sprite {
+    display: inline-block;
+    font-size: 4rem;
+    line-height: 1;
+    margin: 1rem 0;
+  }
 }

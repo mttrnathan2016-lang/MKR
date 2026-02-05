@@ -7,11 +7,13 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
+import { X } from "lucide-react";
 
 export default function Landing() {
   const [, setLocation] = useLocation();
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
+  const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {
     // Preload video
@@ -19,6 +21,19 @@ export default function Landing() {
     video.src = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663336128011/UVtXfyjegfxyvgYK.mp4';
     video.onloadeddata = () => setVideoLoaded(true);
   }, []);
+
+  useEffect(() => {
+    // Countdown timer
+    if (countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown(countdown - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else {
+      // Auto-redirect when countdown reaches 0
+      handleEnter();
+    }
+  }, [countdown]);
 
   const handleEnter = () => {
     setFadeOut(true);
@@ -46,6 +61,15 @@ export default function Landing() {
 
       {/* CRT Scanlines */}
       <div className="absolute inset-0 crt-scanlines z-20" />
+
+      {/* Skip Button */}
+      <button
+        onClick={handleEnter}
+        className="fixed top-6 right-6 z-50 flex items-center gap-2 px-4 py-2 bg-[var(--color-midnight-navy)]/80 backdrop-blur-sm border-2 border-[var(--color-cyber-cyan)] text-[var(--color-cyber-cyan)] font-mono-pixel text-sm hover:bg-[var(--color-cyber-cyan)]/20 transition-all duration-300 group"
+      >
+        <span>SKIP ({countdown}s)</span>
+        <X className="w-4 h-4 group-hover:rotate-90 transition-transform duration-300" />
+      </button>
 
       {/* Content */}
       <div className="relative z-30 min-h-screen flex flex-col items-center justify-center px-4">

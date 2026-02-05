@@ -16,11 +16,19 @@ export default function Landing() {
   const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {
+    // Check if user has visited before
+    const hasVisited = localStorage.getItem('rmg_visited');
+    if (hasVisited === 'true') {
+      // Skip landing page for returning users
+      setLocation('/home');
+      return;
+    }
+
     // Preload video
     const video = document.createElement('video');
     video.src = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663336128011/UVtXfyjegfxyvgYK.mp4';
     video.onloadeddata = () => setVideoLoaded(true);
-  }, []);
+  }, [setLocation]);
 
   useEffect(() => {
     // Countdown timer
@@ -36,6 +44,9 @@ export default function Landing() {
   }, [countdown]);
 
   const handleEnter = () => {
+    // Mark user as visited
+    localStorage.setItem('rmg_visited', 'true');
+    
     setFadeOut(true);
     setTimeout(() => {
       setLocation('/home');

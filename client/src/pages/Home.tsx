@@ -12,12 +12,11 @@ import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Gamepad2, Zap, Users, Coins, Trophy, Rocket, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { usePrivy } from '@privy-io/react-auth';
 import Roadmap from "@/components/Roadmap";
+import WalletButton from "@/components/WalletButton";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  const { ready, authenticated, login, logout, user } = usePrivy();
 
   useEffect(() => {
     setMounted(true);
@@ -39,13 +38,7 @@ export default function Home() {
             <a href="#roadmap" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">Roadmap</a>
             <a href="#community" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">Community</a>
           </div>
-          <Button 
-            className="btn-arcade"
-            onClick={() => authenticated ? logout() : login()}
-            disabled={!ready}
-          >
-            {authenticated ? `${user?.wallet?.address?.slice(0, 6)}...${user?.wallet?.address?.slice(-4)}` : 'CONNECT WALLET'}
-          </Button>
+          <WalletButton />
         </div>
       </nav>
 

@@ -6,23 +6,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home";
-import { PrivyProvider } from '@privy-io/react-auth';
-import { WagmiProvider } from '@privy-io/wagmi';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { privyAppId, privyClientConfig } from './lib/privy-config';
-import { http } from 'wagmi';
-import { mainnet, base } from 'wagmi/chains';
-import { createConfig } from '@privy-io/wagmi';
-
-const queryClient = new QueryClient();
-
-const wagmiConfig = createConfig({
-  chains: [mainnet, base],
-  transports: {
-    [mainnet.id]: http(),
-    [base.id]: http(),
-  },
-});
+// Privy wallet integration ready - requires valid App ID from dashboard.privy.io
+// Uncomment imports below and wrap app with providers after configuring
 
 function Router() {
   return (
@@ -38,24 +23,15 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <PrivyProvider
-        appId={privyAppId}
-        config={privyClientConfig}
+      <ThemeProvider
+        defaultTheme="dark"
+        // switchable
       >
-        <QueryClientProvider client={queryClient}>
-          <WagmiProvider config={wagmiConfig}>
-            <ThemeProvider
-              defaultTheme="dark"
-              // switchable
-            >
-              <TooltipProvider>
-                <Toaster />
-                <Router />
-              </TooltipProvider>
-            </ThemeProvider>
-          </WagmiProvider>
-        </QueryClientProvider>
-      </PrivyProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }

@@ -391,21 +391,21 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <a href="#" className="card-arcade text-center group hover:border-[var(--color-cyber-cyan)]">
+            <a href="https://x.com/RetroMemeGaming" target="_blank" rel="noopener noreferrer" className="card-arcade text-center group hover:border-[var(--color-cyber-cyan)]">
               <div className="font-mono-pixel text-xl mb-2 text-[var(--color-cyber-cyan)]">X (TWITTER)</div>
               <p className="text-sm text-muted-foreground">Follow for updates</p>
               <ChevronRight className="w-6 h-6 mx-auto mt-4 text-[var(--color-cyber-cyan)] group-hover:translate-x-2 transition-transform" />
             </a>
 
-            <a href="#" className="card-arcade text-center group hover:border-[var(--color-hot-magenta)]">
-              <div className="font-mono-pixel text-xl mb-2 text-[var(--color-hot-magenta)]">TELEGRAM</div>
-              <p className="text-sm text-muted-foreground">Join the chat</p>
+            <a href="https://www.facebook.com/profile.php?id=61584612635911" target="_blank" rel="noopener noreferrer" className="card-arcade text-center group hover:border-[var(--color-hot-magenta)]">
+              <div className="font-mono-pixel text-xl mb-2 text-[var(--color-hot-magenta)]">FACEBOOK</div>
+              <p className="text-sm text-muted-foreground">Join the community</p>
               <ChevronRight className="w-6 h-6 mx-auto mt-4 text-[var(--color-hot-magenta)] group-hover:translate-x-2 transition-transform" />
             </a>
 
-            <a href="#" className="card-arcade text-center group hover:border-[var(--color-electric-yellow)]">
-              <div className="font-mono-pixel text-xl mb-2 text-[var(--color-electric-yellow)]">DISCORD</div>
-              <p className="text-sm text-muted-foreground">Connect with players</p>
+            <a href="https://www.youtube.com/@RMG.RetroMemeGaming" target="_blank" rel="noopener noreferrer" className="card-arcade text-center group hover:border-[var(--color-electric-yellow)]">
+              <div className="font-mono-pixel text-xl mb-2 text-[var(--color-electric-yellow)]">YOUTUBE</div>
+              <p className="text-sm text-muted-foreground">Watch gameplay</p>
               <ChevronRight className="w-6 h-6 mx-auto mt-4 text-[var(--color-electric-yellow)] group-hover:translate-x-2 transition-transform" />
             </a>
           </div>

@@ -17,10 +17,13 @@ import WalletButton from "@/components/WalletButton";
 import { MobileNav } from "@/components/MobileNav";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { LoadingScreen } from "@/components/LoadingScreen";
+import { SoundToggle } from "@/components/SoundToggle";
+import { useSound } from "@/contexts/SoundContext";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const { playSound } = useSound();
 
   useEffect(() => {
     setMounted(true);
@@ -48,10 +51,14 @@ export default function Home() {
             <a href="#roadmap" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">Roadmap</a>
             <a href="#community" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">Community</a>
           </div>
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-4">
+            <SoundToggle />
             <WalletButton />
           </div>
-          <MobileNav />
+          <div className="flex lg:hidden items-center gap-4">
+            <SoundToggle />
+            <MobileNav />
+          </div>
         </div>
       </nav>
 
@@ -80,10 +87,19 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 animate-fade-in-up animation-delay-600">
-            <Button className="btn-arcade text-base">
+            <Button 
+              className="btn-arcade text-base"
+              onClick={() => playSound("coin")}
+              onMouseEnter={() => playSound("hover")}
+            >
               INSERT COIN
             </Button>
-            <Button variant="outline" className="border-2 border-[var(--color-cyber-cyan)] text-[var(--color-cyber-cyan)] hover:bg-[var(--color-cyber-cyan)]/20 px-8 py-6 font-pixel text-sm">
+            <Button 
+              variant="outline" 
+              className="border-2 border-[var(--color-cyber-cyan)] text-[var(--color-cyber-cyan)] hover:bg-[var(--color-cyber-cyan)]/20 px-8 py-6 font-pixel text-sm"
+              onClick={() => playSound("click")}
+              onMouseEnter={() => playSound("hover")}
+            >
               PRESS START
             </Button>
           </div>

@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { SoundProvider } from "./contexts/SoundContext";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home";
 // Privy wallet integration ready - requires valid App ID from dashboard.privy.io
@@ -27,10 +28,12 @@ function App() {
         defaultTheme="dark"
         // switchable
       >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <SoundProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </SoundProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

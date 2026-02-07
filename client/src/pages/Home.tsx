@@ -394,6 +394,31 @@ export default function Home() {
             7-week structured rollout: Web2 launch → Multiplayer monetisation → Web3 ownership → Tournaments
           </p>
           <Roadmap />
+          
+          {/* Whitepaper Download */}
+          <div className="mt-16 text-center">
+            <div className="max-w-3xl mx-auto card-arcade p-8">
+              <div className="character-sprite sprite-bounce sprite-glow mb-4" style={{ color: "var(--color-electric-yellow)", fontSize: "4rem" }}>
+                📄
+              </div>
+              <h3 className="font-pixel text-2xl md:text-3xl text-[var(--color-electric-yellow)] neon-glow-yellow mb-4">
+                DOWNLOAD WHITEPAPER
+              </h3>
+              <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+                Get the complete launch roadmap with detailed timelines, deliverables, and technical specifications for Meme Kart Racing's 7-week rollout strategy.
+              </p>
+              <a 
+                href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663336128011/cfceQZYOuznvFuJh.pdf"
+                download="Meme_Kart_Racing_Launch_Roadmap.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="btn-arcade text-base">
+                  DOWNLOAD PDF
+                </Button>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

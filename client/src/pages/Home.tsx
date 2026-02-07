@@ -14,6 +14,7 @@ import { Gamepad2, Zap, Users, Coins, Trophy, Rocket, ChevronRight } from "lucid
 import { useState, useEffect } from "react";
 import Roadmap from "@/components/Roadmap";
 import WalletButton from "@/components/WalletButton";
+import { MobileNav } from "@/components/MobileNav";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -38,7 +39,10 @@ export default function Home() {
             <a href="#roadmap" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">Roadmap</a>
             <a href="#community" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">Community</a>
           </div>
-          <WalletButton />
+          <div className="hidden lg:block">
+            <WalletButton />
+          </div>
+          <MobileNav />
         </div>
       </nav>
 

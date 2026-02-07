@@ -16,16 +16,24 @@ import Roadmap from "@/components/Roadmap";
 import WalletButton from "@/components/WalletButton";
 import { MobileNav } from "@/components/MobileNav";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  const handleLoadComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
+      {isLoading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
+      <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
@@ -539,6 +547,7 @@ export default function Home() {
 
       {/* Scroll to Top Button */}
       <ScrollToTop />
-    </div>
+      </div>
+    </>
   );
 }

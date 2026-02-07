@@ -6,6 +6,23 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home";
+import { PrivyProvider } from '@privy-io/react-auth';
+import { WagmiProvider } from '@privy-io/wagmi';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { privyAppId, privyClientConfig } from './lib/privy-config';
+import { http } from 'wagmi';
+import { mainnet, base } from 'wagmi/chains';
+import { createConfig } from '@privy-io/wagmi';
+
+const queryClient = new QueryClient();
+
+const wagmiConfig = createConfig({
+  chains: [mainnet, base],
+  transports: {
+    [mainnet.id]: http(),
+    [base.id]: http(),
+  },
+});
 
 function Router() {
   return (
@@ -21,14 +38,25 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark">
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
+      <PrivyProvider
+        appId={privyAppId}
+        config={privyClientConfig}
+      >
+        <QueryClientProvider client={queryClient}>
+          <WagmiProvider config={wagmiConfig}>
+            <ThemeProvider
+              defaultTheme="dark"
+              // switchable
+            >
+              <TooltipProvider>
+                <Toaster />
+                <Router />
+              </TooltipProvider>
+            </ThemeProvider>
+          </WagmiProvider>
+        </QueryClientProvider>
+      </PrivyProvider>
     </ErrorBoundary>
   );
 }
-
 export default App;

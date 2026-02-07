@@ -12,9 +12,12 @@ import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Gamepad2, Zap, Users, Coins, Trophy, Rocket, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { usePrivy } from '@privy-io/react-auth';
+import Roadmap from "@/components/Roadmap";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const { ready, authenticated, login, logout, user } = usePrivy();
 
   useEffect(() => {
     setMounted(true);
@@ -33,10 +36,15 @@ export default function Home() {
             <a href="#gameplay" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">Gameplay</a>
             <a href="#tokenomics" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">Tokenomics</a>
             <a href="#nft" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">NFT Market</a>
+            <a href="#roadmap" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">Roadmap</a>
             <a href="#community" className="text-sm hover:text-[var(--color-cyber-cyan)] transition-colors">Community</a>
           </div>
-          <Button className="btn-arcade">
-            CONNECT WALLET
+          <Button 
+            className="btn-arcade"
+            onClick={() => authenticated ? logout() : login()}
+            disabled={!ready}
+          >
+            {authenticated ? `${user?.wallet?.address?.slice(0, 6)}...${user?.wallet?.address?.slice(-4)}` : 'CONNECT WALLET'}
           </Button>
         </div>
       </nav>
@@ -354,6 +362,19 @@ export default function Home() {
               EXPLORE MARKETPLACE
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Roadmap Section */}
+      <section id="roadmap" className="py-24 bg-background diagonal-top">
+        <div className="container">
+          <h2 className="font-pixel text-3xl md:text-5xl text-[var(--color-electric-yellow)] neon-glow-yellow text-center mb-6">
+            LAUNCH ROADMAP
+          </h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
+            7-week structured rollout: Web2 launch → Multiplayer monetisation → Web3 ownership → Tournaments
+          </p>
+          <Roadmap />
         </div>
       </section>
 

@@ -66,13 +66,39 @@ export default function Home() {
             Race. Compete. Earn with $RMG Token. Classic arcade chaos re-engineered for the modern internet.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in-up animation-delay-600">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 animate-fade-in-up animation-delay-600">
             <Button className="btn-arcade text-base">
               INSERT COIN
             </Button>
             <Button variant="outline" className="border-2 border-[var(--color-cyber-cyan)] text-[var(--color-cyber-cyan)] hover:bg-[var(--color-cyber-cyan)]/20 px-8 py-6 font-pixel text-sm">
               PRESS START
             </Button>
+          </div>
+
+          {/* Social Share Buttons */}
+          <div className="flex gap-4 justify-center items-center mb-16 animate-fade-in-up animation-delay-800">
+            <a
+              href="https://twitter.com/intent/tweet?text=Check%20out%20Meme%20Kart%20Racing%20-%20Retro%20Gaming%20Meets%20Web3!&url=https://retromemegaming.com&via=RetroMemeGaming"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded border border-[var(--color-cyber-cyan)] text-[var(--color-cyber-cyan)] hover:bg-[var(--color-cyber-cyan)]/20 transition-all hover:scale-105"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              <span className="font-mono-pixel text-sm">Share on X</span>
+            </a>
+            <a
+              href="https://www.facebook.com/sharer/sharer.php?u=https://retromemegaming.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded border border-[var(--color-hot-magenta)] text-[var(--color-hot-magenta)] hover:bg-[var(--color-hot-magenta)]/20 transition-all hover:scale-105"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+              <span className="font-mono-pixel text-sm">Share on Facebook</span>
+            </a>
           </div>
 
           {/* Stats */}
@@ -374,9 +400,25 @@ export default function Home() {
       {/* Community Section */}
       <section id="community" className="py-24 bg-[var(--color-midnight-navy)] diagonal-top">
         <div className="container">
-          <h2 className="font-pixel text-3xl md:text-5xl text-[var(--color-cyber-cyan)] neon-glow-cyan text-center mb-16">
+          <h2 className="font-pixel text-3xl md:text-5xl text-[var(--color-cyber-cyan)] neon-glow-cyan text-center mb-6">
             JOIN THE ARCADE
           </h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Watch our latest gameplay and join the community across all platforms
+          </p>
+
+          {/* YouTube Embed */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="relative rounded-lg overflow-hidden border-4 border-[var(--color-electric-yellow)] crt-scanlines" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed?listType=user_uploads&list=RMG.RetroMemeGaming"
+                title="Latest Gameplay - Meme Kart Racing"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
 
           <div 
             className="relative rounded-lg overflow-hidden mb-12 border-4 border-[var(--color-cyber-cyan)] crt-scanlines"
@@ -390,7 +432,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-midnight-navy)] via-transparent to-transparent" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <a href="https://x.com/RetroMemeGaming" target="_blank" rel="noopener noreferrer" className="card-arcade text-center group hover:border-[var(--color-cyber-cyan)]">
               <div className="font-mono-pixel text-xl mb-2 text-[var(--color-cyber-cyan)]">X (TWITTER)</div>
               <p className="text-sm text-muted-foreground">Follow for updates</p>
@@ -407,6 +449,12 @@ export default function Home() {
               <div className="font-mono-pixel text-xl mb-2 text-[var(--color-electric-yellow)]">YOUTUBE</div>
               <p className="text-sm text-muted-foreground">Watch gameplay</p>
               <ChevronRight className="w-6 h-6 mx-auto mt-4 text-[var(--color-electric-yellow)] group-hover:translate-x-2 transition-transform" />
+            </a>
+
+            <a href="https://t.me/+QIiivULlXpBmZjA1" target="_blank" rel="noopener noreferrer" className="card-arcade text-center group hover:border-[var(--color-neon-green)]">
+              <div className="font-mono-pixel text-xl mb-2 text-[var(--color-neon-green)]">TELEGRAM</div>
+              <p className="text-sm text-muted-foreground">Join the chat</p>
+              <ChevronRight className="w-6 h-6 mx-auto mt-4 text-[var(--color-neon-green)] group-hover:translate-x-2 transition-transform" />
             </a>
           </div>
         </div>

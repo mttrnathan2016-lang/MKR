@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 import Roadmap from "@/components/Roadmap";
 import WalletButton from "@/components/WalletButton";
 import { MobileNav } from "@/components/MobileNav";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -535,6 +536,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 }

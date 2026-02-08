@@ -19,6 +19,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { SoundToggle } from "@/components/SoundToggle";
 import { useSound } from "@/contexts/SoundContext";
+import { PixelParticles } from "@/components/PixelParticles";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -74,6 +75,7 @@ export default function Home() {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-0" />
+        <PixelParticles />
         
         <div className="container relative z-10 text-center">
           <h1 className="font-pixel text-4xl md:text-6xl lg:text-7xl text-[var(--color-neon-green)] neon-glow-green mb-6 animate-fade-in-up">
